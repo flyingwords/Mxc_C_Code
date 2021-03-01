@@ -1,0 +1,26 @@
+syntax = "proto2";	
+
+option optimize_for = SPEED; 
+
+message Job{
+	required uint32 income = 1 [ default = 10000 ];
+	required string partner = 2 [ default = "alice" ] ;
+}
+
+message User {
+        required uint32 version = 1;
+        required uint32 magic   = 2 [ default = 0xfb709394 ];
+        required string name    = 3 [ default = "maxucan" ];
+        required string phone   = 4;
+       
+        enum Status {
+                IDLE = 1;
+                BUSY = 2;
+        };
+        required Status stat    = 5 [ default = IDLE ];
+        optional string email   = 6;
+
+        required Job userjob = 7; //嵌套message 结构，并使用required修饰，此时userjob 是一个Job *类型的指针 
+}
+
+

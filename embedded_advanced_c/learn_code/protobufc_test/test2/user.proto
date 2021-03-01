@@ -1,0 +1,26 @@
+syntax = "proto2";	
+
+option optimize_for = SPEED; 
+
+message User {
+        required uint32 version = 1;
+        required uint32 magic   = 2 [ default = 0xfb709394 ];
+        required string name    = 3 [ default = "maxucan" ];
+        required string phone   = 4;
+       
+        enum Status {
+                IDLE = 1;
+                BUSY = 2;
+        };
+        required Status stat    = 5 [ default = IDLE ];
+        optional string email   = 6;
+        
+        repeated uint32 worktime = 7 [ packed = true ]; //repeated 标识worktime是一个指针，用来指向uint32类型的数组
+}
+
+/*
+说明：
+	repeated用来标识Filed是一个指针，用来指向Filed所属类型的数组。
+	repeated后面加[ packed = true ]会使用新的更高效的编码方式。
+*/
+

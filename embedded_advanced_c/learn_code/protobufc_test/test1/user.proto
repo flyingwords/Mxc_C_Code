@@ -1,0 +1,42 @@
+syntax = "proto2";	
+
+option optimize_for = SPEED; 
+
+message User {
+        required uint32 version = 1;
+        required uint32 magic   = 2 [ default = 0xfb709394 ];
+        required string name    = 3 [ default = "maxucan" ];
+        required string phone   = 4;
+        enum Status {
+                IDLE = 1;
+                BUSY = 2;
+        };
+        required Status stat    = 5 [ default = IDLE ];
+        optional string email   = 6;
+}
+
+
+
+/*
+说明：
+1、首行指定proto版本，分proto2和proto3,不指定则默认使用proto2
+
+2、optimize_for是文件级别的选项，Protocol Buffer定义三种优化级别SPEED/CODE_SIZE/LITE_RUNTIME。缺省情况下是SPEED。
+	SPEED: 表示生成的代码运行效率高，但是由此生成的代码编译后会占用更多的空间。 
+	CODE_SIZE: 和SPEED恰恰相反，代码运行效率较低，但是由此生成的代码编译后会占用更少的空间，通常用于资源有限的平台，如Mobile。
+	LITE_RUNTIME: 生成的代码执行效率高，同时生成代码编译后的所占用的空间也是非常少。这是以牺牲Protocol Buffer提供的反射功能为代价的。
+	SPEED和LITE_RUNTIME相比，在于调试级别上，在SPEED模式下会利用反射机制打印出详细字段和字段值，但是LITE_RUNTIME则仅仅打印字段值组成的字符串;    
+
+3、message xxx{} 用于定义一个数据结构，protobuf将一种结构称为一个message类型，xxx是类型名称。
+
+4、version、magic、name、phone、stat、email是我们定义的Field，每个Filed必须指定一个id，并且id不能重复
+	id为1-15 编码只占用一个字节   ，id为16-2047 编码占用两个字节，所以最常用的数据对应id要尽量小一些
+	
+5、uint32、string等 用来指定 Field的数据类型，数据类型分变长编码、定长编码等类别，[ default = xxx ] 用来指定Field的默认值
+
+6、required，optional，repeated 是这个Filed的规则，分别表示该数据结构中这个Filed有且只有1个，可以是0个或1个，可以是0个或任意个。
+	注意：使用required规则的时候要谨慎，因为以后结构若发生更改，这个Filed若被删除的话将可能导致兼容性的问题。
+	
+7、enum { xxx,xxx,... } 用来定义枚举类型
+	注意：如果枚举类型中有不同的名字对应相同的数字id，需要加入option allow_alias = true这一项，否则会报错。
+*/

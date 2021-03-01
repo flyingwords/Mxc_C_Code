@@ -1,0 +1,25 @@
+syntax = "proto2";	
+
+option optimize_for = SPEED; 
+
+message User {
+        required uint32 version = 1;
+        required uint32 magic   = 2 [ default = 0xfb709394 ];
+        required string name    = 3 [ default = "maxucan" ];
+        repeated string phone   = 4;	//repeated 标识phone是一个指针，用来指向string (c语言是char *)类型的数组
+       
+        enum Status {
+                IDLE = 1;
+                BUSY = 2;
+        };
+        required Status stat    = 5 [ default = IDLE ];
+        optional string email   = 6;
+        
+}
+
+/*
+说明：
+	repeated用来标识Filed是一个指针，用来指向Filed所属类型的数组。
+	repeated后面加[ packed = true ]会使用新的更高效的编码方式。
+*/
+

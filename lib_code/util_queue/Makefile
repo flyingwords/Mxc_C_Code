@@ -1,4 +1,4 @@
 all:
-	gcc util_queue_test.c  util_queue.c -o util_queue_test
+	gcc test.c  util_queue.c -o test
 clean:
-	rm util_queue_test
+	rm test

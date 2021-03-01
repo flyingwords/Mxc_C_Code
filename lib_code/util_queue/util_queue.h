@@ -1,5 +1,5 @@
-#ifndef __QUEUE_H__
-#define __QUEUE_H__
+#ifndef __UTIL_QUEUE_H__
+#define __UTIL_QUEUE_H__
 
 #include <netinet/in.h>
 

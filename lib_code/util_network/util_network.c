@@ -13,7 +13,7 @@
 #include <netinet/in.h> 
 
 /*
-函数名：Socket_GetIP
+函数名：Util_Socket_GetIP
 描述：
 	获取网卡设备eth0的IP	
 参数：
@@ -21,7 +21,7 @@
 返回值：
 	无
 */
-void Socket_GetIP(char* pIPBuf)
+void Util_Socket_GetIP(char* pIPBuf)
 {
 	int sock_get_ip;  
 	
@@ -44,20 +44,10 @@ void Socket_GetIP(char* pIPBuf)
 
 }
 
-/*示例*/
-#if 0
-int main(void)
-{
-	int ret = -1;
-	char cLocalIP[20] = {0};
-	Socket_GetIP(cLocalIP);
-	printf("cLocalIP is %s\n", cLocalIP);
-	return 0;
-}
-#endif 
+
 
 /*
-函数名：Get_DevIP
+函数名：Util_Dev_PrintIP
 描述：
 	打印设备的所有IP地址
 参数：
@@ -65,7 +55,7 @@ int main(void)
 返回值：
 	无
 */
-int Get_DevIP(void) {
+int Util_Dev_PrintIP(void) {
     struct ifaddrs * ifAddrStruct=NULL;
     struct ifaddrs * ifa=NULL;
     void * tmpAddrPtr=NULL;
@@ -93,7 +83,7 @@ int Get_DevIP(void) {
 
 
 /*
-函数名：ip_to_hostname
+函数名：Util_IP_To_Hostname
 描述：
 	获取IP地址的域名并打印出来
 参数：
@@ -102,7 +92,7 @@ int Get_DevIP(void) {
 	失败返回-1
 	成功返回0
 */
-int ip_to_hostname(const char* ip)
+int Util_IP_To_Hostname(const char* ip)
 {
     int ret = 0;
 
@@ -145,9 +135,8 @@ int ip_to_hostname(const char* ip)
 }
 
 
-
 /*
-函数名：hostname_to_ip
+函数名：Util_Hostname_To_IP
 描述：
 	转换域名为IP地址并打印
 参数：
@@ -156,7 +145,7 @@ int ip_to_hostname(const char* ip)
 	失败返回-1
 	成功返回0
 */
-int hostname_to_ip(const char* hostname)
+int Util_Hostname_To_IP(const char* hostname)
 {
     int ret = 0;
 
@@ -195,14 +184,4 @@ int hostname_to_ip(const char* hostname)
     freeaddrinfo(res);
     return ret;
 }
-
-/*示例*/
-#if 0
-int main(void)
-{
-	hostname_to_ip("www.baidu.com");
-	return 0;
-}
-#endif 
-
 

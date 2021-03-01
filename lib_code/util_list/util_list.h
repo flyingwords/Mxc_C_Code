@@ -2,8 +2,8 @@
 链表功能描述：这套链表适用于相机音视频发送处理
 */
 
-#ifndef _MY_LIST_H
-#define _MY_LIST_H
+#ifndef __UTIL_LIST_H
+#define __UTIL_LIST_H
 
 #include <stddef.h>
 

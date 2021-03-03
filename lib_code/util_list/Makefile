@@ -1,4 +1,4 @@
 all:
-	gcc test.c -o test
+	gcc test_util_list.c -o test_util_list
 clean:
-	rm test 
+	rm test_util_list

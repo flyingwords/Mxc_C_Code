@@ -4,7 +4,7 @@
 #include <string.h>
 
 /*
-函数名：isnumstr
+函数名：Util_IsNumStr
 描述：
 	判断当前字符串是不是数字字符串
 参数：
@@ -13,7 +13,7 @@
 	是数字字串返回 1，否则返回0
 */
 
-int isnumstr(const char *pstr)
+int Util_IsNumStr(const char *pstr)
 {
     if (strspn(pstr, "0123456789") == strlen(pstr))
     {   
@@ -26,7 +26,7 @@ int isnumstr(const char *pstr)
 }
 
 /*
-函数名：itoa
+函数名：Util_Itoa
 描述：
 	将整形转换为字符串函数（只能转换正的整形数）
 参数：
@@ -35,7 +35,7 @@ int isnumstr(const char *pstr)
 返回值：
 	无
 */
-void itoa(int i, char *strbuf)
+void Util_Itoa(int i, char *strbuf)
 {
 	int power = 0;
 	int j = 0;
@@ -56,7 +56,7 @@ void itoa(int i, char *strbuf)
 
 
 /*
-函数名：update_conf
+函数名：Util_Update_Conf
 描述：
 	根据关键字更新配置行
 参数：
@@ -67,7 +67,7 @@ void itoa(int i, char *strbuf)
 	成功	0 失败-1
 */
 #define FILE_BUFF_SIZE 2048	//文件的大小不能超过2KB
-int update_conf(char *path, char *keyword, char *item)
+int Util_Update_Conf(char *path, char *keyword, char *item)
 {
 	FILE *fp = NULL;
 	char *line = NULL;
@@ -128,19 +128,8 @@ int update_conf(char *path, char *keyword, char *item)
 	return 0;
 }
 
-/*示例*/
-#if 0
-int main(void)
-{
-	system("echo \"I like code\" > ./test.conf");
-	update_conf("./test.conf", "code", "hello world, man");
-	return 0;
-}
-#endif
-
-
 /*
-函数名：Str_GetItem
+函数名：Util_Str_GetItem
 描述：
 	从源串pSrc中，提取关键字串pItemText后面的字符，当遇到
 	子串pEnd，结束提取，将提取字符串保存到pBuf中
@@ -154,7 +143,7 @@ int main(void)
 	失败返回-1
 	成功返回提取字符长度
 */
-int Str_GetItem(const char* pSrc, const char* pItemText, char *pBuf, int nBufLen, char *pEnd)
+int Util_Str_GetItem(const char* pSrc, const char* pItemText, char *pBuf, int nBufLen, char *pEnd)
 {
 	int nReturn = -1;
 	if( pSrc == NULL || pBuf == NULL)
@@ -203,22 +192,9 @@ int Str_GetItem(const char* pSrc, const char* pItemText, char *pBuf, int nBufLen
 	return nReturn;
 }
 
-/*示例*/
-#if 0
-int main(void)
-{
-	char src_str[128] = "my name = maxucan;my num = 666;";
-	char out_str[128+1] = "";
-	int out_str_len = 0;
-	out_str_len = Str_GetItem(src_str, "my name = ", out_str, 128, ";my num");
-	printf("out_str_len = %d\n", out_str_len);
-	printf("out_str = %s\n", out_str);	
-	return 0;
-}
-#endif
 
 /*
-函数名：Str_GetItemToLong
+函数名：Util_Str_GetItemToLong
 描述：
 	从源串pSrc中，提取关键字串pItemText后面的字符，当遇到
 	子串pEnd，结束提取，并将提取字符串转换为long型返回。
@@ -231,7 +207,7 @@ int main(void)
 	失败返回-1
 	成功返回转换后的long整型数
 */
-long Str_GetItemToLong( const char* pSrc, const char* pItemText, char *pEnd)
+long Util_Str_GetItemToLong( const char* pSrc, const char* pItemText, char *pEnd)
 {
 	long lReturn = -1;
 	if( pSrc == NULL || pItemText == NULL || pEnd == NULL)
@@ -240,27 +216,16 @@ long Str_GetItemToLong( const char* pSrc, const char* pItemText, char *pEnd)
 	}
 	
 	char cTemp[12] = {0};	
-	if( Str_GetItem( pSrc, pItemText, cTemp, 12, pEnd) > 0)
+	if( Util_Str_GetItem( pSrc, pItemText, cTemp, 12, pEnd) > 0)
 	{
 		lReturn = atol(cTemp);
 	}
 	return lReturn;
 }
 
-/*示例*/
-#if 0
-int main(void)
-{
-	char src_str[128] = "my name = maxucan;my num = 666666;";
-	long out_long = Str_GetItemToLong(src_str, "my num = ", ";");
-	printf("out_long = %ld\n", out_long);
-	return 0;
-}
-#endif
-
 
 /*
-函数名：Str_FindItem
+函数名：Util_Str_FindItem
 描述：
 	查询源串pSrc是否含有子串pItemText
 参数：
@@ -269,27 +234,11 @@ int main(void)
 返回值：
 	含有子串返回0，否则返回-1
 */
-int Str_FindItem( const char *pSrc, const char* pItemText)
+int Util_Str_FindItem( const char *pSrc, const char* pItemText)
 {
 	if( pSrc == NULL || pItemText == NULL || strcasestr( pSrc, pItemText) == NULL)
 		return -1;
 	return 0;
 }
-
-/*示例*/
-#if 0
-int main(void)
-{
-	char src_str[128] = "my name = maxucan;my num = 666;";
-	char sub_str[128+1] = "maxucan";
-	if (!Str_FindItem(src_str, sub_str))
-		printf("y\n");
-	else
-		printf("n\n");
-	return 0;
-}
-#endif
-
-
 
 

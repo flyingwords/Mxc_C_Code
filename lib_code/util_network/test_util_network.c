@@ -31,10 +31,21 @@ int main(void)
 /*
 示例：Util_Hostname_To_IP
 */
-#if 1
+#if 0
 int main(void)
 {
 	Util_Hostname_To_IP("www.baidu.com");
+	return 0;
+}
+#endif 
+
+/*
+示例：Util_IP_To_Hostname
+*/
+#if 1
+int main(void)
+{
+	Util_IP_To_Hostname("104.193.88.77");
 	return 0;
 }
 #endif 

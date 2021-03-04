@@ -49,13 +49,13 @@ void Util_Socket_GetIP(char* pIPBuf)
 /*
 函数名：Util_Dev_PrintIP
 描述：
-	打印设备的所有IP地址
+	打印设备的所有IP地址(IPv4 IPv6)
 参数：
 	无
 返回值：
 	无
 */
-int Util_Dev_PrintIP(void) {
+void Util_Dev_PrintIP(void) {
     struct ifaddrs * ifAddrStruct=NULL;
     struct ifaddrs * ifa=NULL;
     void * tmpAddrPtr=NULL;
@@ -78,9 +78,7 @@ int Util_Dev_PrintIP(void) {
         } 
     }
     if (ifAddrStruct!=NULL) freeifaddrs(ifAddrStruct);
-    return 0;
 }
-
 
 /*
 函数名：Util_IP_To_Hostname

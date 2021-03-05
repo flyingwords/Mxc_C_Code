@@ -47,4 +47,17 @@ int Util_IP_To_Hostname(const char* ip);
 	成功返回0
 */
 int Util_Hostname_To_IP(const char* hostname);
+
+/*
+函数名：Util_Is_SocketType
+描述：
+	判断文件描述符是不是socket描述符
+参数：
+	fd：描述符
+返回值：
+	1 socket描述符
+	0 非socket描述符
+*/
+int Util_Is_SocketType(int fd);
+
 #endif

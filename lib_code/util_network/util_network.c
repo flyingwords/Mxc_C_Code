@@ -183,3 +183,31 @@ int Util_Hostname_To_IP(const char* hostname)
     return ret;
 }
 
+
+/*
+函数名：Util_Is_SocketType
+描述：
+	判断文件描述符是不是socket描述符
+参数：
+	fd：描述符
+返回值：
+	1 socket描述符
+	0 非socket描述符
+*/
+
+int Util_Is_SocketType(int fd)
+{
+	struct stat st;
+	int err =	fstat(fd, &st);						/*获得文件的状态*/
+	
+	if( err < 0 )	{
+		return -1;		
+	}
+	
+	if((st.st_mode & S_IFMT) == S_IFSOCK)	{		/*比较是否套接字描述														*/
+		return 1;
+	}	else{
+		return 0;
+	}
+}
+

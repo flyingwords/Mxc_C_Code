@@ -42,7 +42,7 @@ int main(void)
 /*
 示例：Util_IP_To_Hostname
 */
-#if 1
+#if 0
 int main(void)
 {
 	Util_IP_To_Hostname("104.193.88.77");
@@ -50,6 +50,22 @@ int main(void)
 }
 #endif 
 
+/*
+示例：Util_Is_SocketType
+*/
+#if 0
+int main(void)
+{
+	int ret = Util_Is_SocketType(0);				/*查询标准输入是否套接字描述符												*/
+	printf("value %d\n",ret);
+	
+	int s = socket(AF_INET, SOCK_STREAM,0);	/*建立套接字描述*/
+	ret = Util_Is_SocketType(s);						/*查询是否为套接字描述*/
+	printf("value %d\n",ret);					/*输出结果*/
+	
+	return 0;
+}
+#endif
 
 
 

@@ -1,4 +1,3 @@
-##define file_operation
 #define file_attr
 int access(const char *pathname, int mode);
 /*
@@ -292,7 +291,6 @@ stream：指向文件流指针
 那么数组就会越界，写入的数据是不可知的。
 */
 
-##define filelock
 #define filelock
 int fcntl(int fd, int cmd, ... arg);
 /*
@@ -339,7 +337,6 @@ F_GETLK和F_SETLK调用成功返回非-1，失败返回-1。
 F_SETLKW等待获取才会返回。
 */
 
-##define time
 #define time
 time_t time(time_t *t);
 /*
@@ -416,7 +413,7 @@ tz：输出型参数，一般设置为NULL
 成功返回0，失败返回-1
 */
 
-##define process
+
 #define exec
 /*exec系列函数 用于执行新的程序作为新的进程替换老的进程，新的进程会继承老进程的进程号和资源。
 */
@@ -487,7 +484,6 @@ pipe创建管道之后，使用fork复制了管道，父子进程都会各自拥
 因此总共有四个管道端口，这四个端口是共通的，因此父子进程就可以通过管道进行通信了。
 */
 
-##define signal
 #define signal
 typedef void (*sighandler_t)(int);
 sighandler_t signal(int signum, sighandler_t handler);
@@ -654,7 +650,7 @@ sigsuspend总是返回-1,并设置errno
 当进程解除对待处理信号的屏蔽时，待处理信号就会立刻被处理。
 */
 
-##define thread
+
 #define thread
 int pthread_ceate(pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine) (void *), void *arg);
 /*
@@ -857,7 +853,7 @@ sem：指向信号量变量的指针
 调用成功返回0，失败返回-1
 */
 
-##define other_iomodel
+
 #define other_iomodel
 int fcntl(int fd, F_GETFL);
 int fcntl(int fd, F_SETFL, ... arg);
@@ -1011,7 +1007,7 @@ int  FD_ISSET(int fd, fd_set *set); //判断哪路IO就绪
 
 
 
-##define stray_knowledge
+
 #define stray_knowledge
 void *mmap(void *addr, size_t length, int prot, int flags,int fd, off_t offset);
 /*

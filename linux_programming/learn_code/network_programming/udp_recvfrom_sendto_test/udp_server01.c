@@ -4,7 +4,7 @@
 #include <string.h>							/*包含memset()*/
 
 /*
-程序功能描述：一个简单的udp回显程序
+程序功能描述：一个简单的udp回显程序，使用recvfrom和sendto进行数据收发
 */
 
 #define PORT_SERV 8888/*服务器端口*/

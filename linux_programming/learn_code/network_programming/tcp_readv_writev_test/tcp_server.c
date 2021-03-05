@@ -8,12 +8,9 @@
 #include <signal.h>
 
 /*
-程序功能描述：一个简单的TCP通信流程，包含了对退出信号的处理，并且分别使用四种IO接口进行数据的发送和接收处理
-四种IO接口分别为：
-read和write
-recv和send
-readv和writev
-recvmsg和sendmsg
+程序功能描述：一个简单的TCP通信流程，包含了对退出信号的处理，并且分别使用
+readv和writev接口进行数据的发送和接收处理
+
 */
 
 #define PORT 8888						/*侦听端口地址*/

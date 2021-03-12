@@ -1,3 +1,4 @@
+#cc = gcc
 all:client server					#all规则，它依赖于client和server规则
 
 client:tcp_process_recv_send.o tcp_client.o	#client规则，生成客户端可执行程序

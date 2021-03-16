@@ -99,7 +99,11 @@ int main(int argc, char *argv[])
             
 			}
 			
-      	}
+      	}else{ //如果errno不是EINPROGRESS，则说明连接错误，程序结束		
+			printf("not EINPROGRESS, connect err\n",	err, strerror(err));
+			close(s);
+			return -1;
+		}
 	}
 
 	/*重新设置socket为阻塞*/

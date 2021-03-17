@@ -180,7 +180,7 @@ int main(int argc, char **argv)
 				//fd = Socket(AF_INET, SOCK_STREAM, 0);
 				fd = socket(AF_INET, SOCK_STREAM, 0);
 				break;
-#if IPPROTO_IPV6	//用协议族做支持判断
+#ifdef IPPROTO_IPV6	//用协议族做支持判断
 			case IPPROTO_IPV6:
 				//fd = Socket(AF_INET6, SOCK_STREAM, 0);
 				fd = socket(AF_INET, SOCK_STREAM, 0);
@@ -210,7 +210,7 @@ int main(int argc, char **argv)
 			if (getsockopt(fd, ptr->opt_level, ptr->opt_name,
 						   &val, &len) == -1) {
 				//err_ret("getsockopt error");
-				perror("getsockopt");
+				printf("getsockopt:%s\n", strerror(errno));
 				
 			} else {
 				printf("default = %s\n", (*ptr->opt_val_str)(&val, len));

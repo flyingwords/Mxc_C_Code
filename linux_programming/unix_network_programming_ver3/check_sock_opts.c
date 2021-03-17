@@ -210,7 +210,7 @@ int main(int argc, char **argv)
 			if (getsockopt(fd, ptr->opt_level, ptr->opt_name,
 						   &val, &len) == -1) {
 				//err_ret("getsockopt error");
-				printf("getsockopt : %s %d\n", strerror(errno), errno);
+				printf("getsockopt: %s %d\n", strerror(errno), errno);
 				
 			} else {
 				printf("default = %s\n", (*ptr->opt_val_str)(&val, len));

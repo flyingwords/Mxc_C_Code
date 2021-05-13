@@ -414,6 +414,26 @@ tz：输出型参数，一般设置为NULL
 */
 
 
+int clock_gettime(clockid_t clk_id, struct timespec *tp);
+/*
+描述：可以根据需要，获取不同要求的精确时间
+参数：
+clk_id : 检索和设置的clk_id指定的时钟时间。
+CLOCK_REALTIME:系统实时时间,随系统实时时间改变而改变,即从UTC1970-1-1 0:0:0开始计时,
+中间时刻如果系统时间被用户改成其他,则对应的时间相应改变
+CLOCK_MONOTONIC:从系统启动这一刻起开始计时,不受系统时间被用户改变的影响
+CLOCK_PROCESS_CPUTIME_ID:本进程到当前代码系统CPU花费的时间
+CLOCK_THREAD_CPUTIME_ID:本线程到当前代码系统CPU花费的时间
+struct timespec
+{
+        time_t tv_sec; //秒
+        long tv_nsec; //纳秒
+};
+返回值：
+成功返回0，失败返回-1
+*/
+
+
 #define exec
 /*exec系列函数 用于执行新的程序作为新的进程替换老的进程，新的进程会继承老进程的进程号和资源。
 */

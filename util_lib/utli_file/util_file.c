@@ -5,7 +5,7 @@
 #include <dirent.h>
 
 /*
-函数名：Update_Conf
+函数名：update_conf
 描述：
 	根据关键字更新配置行
 参数：
@@ -16,7 +16,7 @@
 	成功	0 失败-1
 */
 #define FILE_BUFF_SIZE 2048	//文件的大小不能超过2KB
-int Update_Conf(char *path, char *keyword, char *item)
+int update_conf(char *path, char *keyword, char *item)
 {
 	FILE *fp = NULL;
 	char *line = NULL;
@@ -78,7 +78,7 @@ int Update_Conf(char *path, char *keyword, char *item)
 }
 
 
-unsigned long util_Get_File_Size(const char *filepath)
+unsigned long get_file_size(const char *filepath)
 {
         int filesize = 0; 
         struct stat statbuff;

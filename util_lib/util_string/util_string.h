@@ -2,7 +2,7 @@
 #define __UTIL_STRING__
 
 /*
-函数名：Util_IsNumStr
+函数名：IsNumStr
 描述：
 	判断当前字符串是不是数字字符串
 参数：
@@ -11,10 +11,10 @@
 	是数字字串返回 1，否则返回0
 */
 
-int Util_IsNumStr(const char *pstr);
+int IsNumStr(const char *pstr);
 
 /*
-函数名：Util_Itoa
+函数名：Itoa
 描述：
 	将整形转换为字符串函数（只能转换正的整形数）
 参数：
@@ -23,10 +23,10 @@ int Util_IsNumStr(const char *pstr);
 返回值：
 	无
 */
-void Util_Itoa(int i, char *strbuf);
+void Itoa(int i, char *strbuf);
 
 /*
-函数名：Util_Update_Conf
+函数名：Update_Conf
 描述：
 	根据关键字更新配置行
 参数：
@@ -36,10 +36,10 @@ void Util_Itoa(int i, char *strbuf);
 返回值：
 	成功	0 失败-1
 */
-int Util_Update_Conf(char *path, char *keyword, char *item);
+int Update_Conf(char *path, char *keyword, char *item);
 
 /*
-函数名：Util_Str_GetItem
+函数名：Str_GetItem
 描述：
 	从源串pSrc中，提取关键字串pItemText后面的字符，当遇到
 	子串pEnd，结束提取，将提取字符串保存到pBuf中
@@ -53,10 +53,10 @@ int Util_Update_Conf(char *path, char *keyword, char *item);
 	失败返回-1
 	成功返回提取字符长度
 */
-int Util_Str_GetItem(const char* pSrc, const char* pItemText, char *pBuf, int nBufLen, char *pEnd);
+int Str_GetItem(const char* pSrc, const char* pItemText, char *pBuf, int nBufLen, char *pEnd);
 
 /*
-函数名：Util_Str_FindItem
+函数名：Str_FindItem
 描述：
 	查询源串pSrc是否含有子串pItemText
 参数：
@@ -65,6 +65,6 @@ int Util_Str_GetItem(const char* pSrc, const char* pItemText, char *pBuf, int nB
 返回值：
 	含有子串返回0，否则返回-1
 */
-int Util_Str_FindItem( const char *pSrc, const char* pItemText);
+int Str_FindItem( const char *pSrc, const char* pItemText);
 
 #endif

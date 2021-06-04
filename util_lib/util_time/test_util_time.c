@@ -25,12 +25,12 @@
 
 #include "util_time.h"
 
-/*示例：Util_SetDataTime
+/*示例：SetDataTime
 */
 #if 1
 int main(void)
 {
-	Util_STU_TIME stuTime;
+	STU_TIME stuTime;
 	struct timeval tv = { 0, 0 };
 	unsigned long int time_sync_sec = 0;
 
@@ -45,7 +45,7 @@ int main(void)
 	printf("gettimeofday得到设置前的时间：\n");
 	printf("秒数：%lu  微妙：%lu\n", tv.tv_sec, tv.tv_usec);
 
-	Util_SetDataTime(&stuTime, &time_sync_sec);
+	SetDataTime(&stuTime, &time_sync_sec);
 
 	//查询设置后时间
 	gettimeofday(&tv, NULL);

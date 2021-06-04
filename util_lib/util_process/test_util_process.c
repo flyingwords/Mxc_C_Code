@@ -3,13 +3,13 @@
 #include <string.h>
 #include "util_process.h"
 
-/*示例；Util_FindPid
+/*示例；FindPid
 */
 #if 1
 int main()
 {
 	int pid;
-	pid = Util_FindPid("ps");
+	pid = FindPid("ps");
 	printf("pid = %d\n", pid);
 	return 0;
 }

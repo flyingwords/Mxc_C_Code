@@ -3,7 +3,7 @@
 #include <string.h>
 
 /*
-函数名：Util_FindPid
+函数名：FindPid
 描述：
 	查询进程的pid
 参数：
@@ -13,7 +13,7 @@
 	失败返回 -1
 */
 #define PS_CMD                  "ps | grep \""
-int Util_FindPid(char pidname[])
+int FindPid(char pidname[])
 {
         int i = 0;
         int ret = -1;

@@ -1,7 +1,7 @@
 #ifndef __UTIL_PROCESS_
 #define __UTIL_PROCESS_
 /*
-函数名：Util_FindPid
+函数名：FindPid
 描述：
 	查询进程的pid
 参数：
@@ -10,6 +10,6 @@
 	成功返回PID
 	失败返回 -1
 */
-int Util_FindPid(char pidname[]);
+int FindPid(char pidname[]);
 
 #endif

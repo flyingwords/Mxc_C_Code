@@ -14,7 +14,7 @@
 int IsNumStr(const char *pstr);
 
 /*
-函数名：Itoa
+函数名：itoa
 描述：
 	将整形转换为字符串函数（只能转换正的整形数）
 参数：
@@ -23,20 +23,21 @@ int IsNumStr(const char *pstr);
 返回值：
 	无
 */
-void Itoa(int i, char *strbuf);
+void itoa(int i, char *strbuf);
 
-/*
-函数名：Update_Conf
-描述：
-	根据关键字更新配置行
-参数：
-	path：文件
-	keyword：关键字
-	item：新的配置行
-返回值：
-	成功	0 失败-1
+/* 
+*  十六进制字符串转十进制
 */
-int Update_Conf(char *path, char *keyword, char *item);
+int htoi(char s[]);
+
+/* 
+*  十进制转十六进制字符串
+*/
+void itoh(int n, char s[]);
+
+/*求最大公约数
+*/
+int calc_gcd(int w, int h);
 
 /*
 函数名：Str_GetItem

@@ -26,7 +26,7 @@ int IsNumStr(const char *pstr)
 }
 
 /*
-函数名：Itoa
+函数名：itoa
 描述：
 	将整形转换为字符串函数（只能转换正的整形数）
 参数：
@@ -35,7 +35,7 @@ int IsNumStr(const char *pstr)
 返回值：
 	无
 */
-void Itoa(int i, char *strbuf)
+void itoa(int i, char *strbuf)
 {
 	int power = 0;
 	int j = 0;
@@ -52,6 +52,79 @@ void Itoa(int i, char *strbuf)
 	}
 	
 	*strbuf = '\0';
+}
+
+
+/* 
+*  十六进制字符串转十进制
+*/
+int htoi(char s[]) 
+{
+        int i = 0; 
+        int n = 0; 
+
+        for (i=0; (s[i] >= '0' && s[i] <= '9') || (s[i] >= 'a' && s[i] <= 'z') 
+                        || (s[i] >= 'A' && s[i] <= 'Z'); i++) {
+                if (s[i] <= '9') {
+                        n = 16 * n + (s[i] - '0');
+                }    
+                else if (s[i] >= 'a') {
+                        n = 16 * n + (10 + s[i] - 'a');
+                }    
+                else if (s[i] >= 'A') {
+                        n = 16 * n + (10 + s[i] - 'A');
+                }    
+        }    
+
+        return n;
+}
+
+/* 
+*  十进制转十六进制字符串
+*/
+void itoh(int n, char s[]) 
+{
+        char base[16] = {'0', '1', '2', '3', 
+                         '4', '5', '6', '7', 
+                         '8', '9', 'A', 'B', 
+                         'C', 'D', 'E', 'F'};
+        int a = n; 
+        int i = 0; 
+        int j = 0; 
+        char t = 0; 
+
+        while (a != 0) { 
+                s[i++] = base[a%16];
+                a /= 16;
+        }
+        s[i] = '\0';
+
+        /* 倒置 */
+        j = strlen(s) - 1;
+        i = 0;
+        while (i<j) {
+                t = s[i];
+                s[i] = s[j];
+                s[j] = t;
+
+                i++;
+                j--;
+        }
+}
+
+/*求最大公约数
+*/
+int calc_gcd(int w, int h)
+{
+    int a = w;
+    int b = h;
+    int c = 0;
+    while (b!=0) {
+	c = a%b;
+	a = b;
+	b = c;
+    }     
+    return a;
 }
 
 /*

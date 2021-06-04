@@ -1,20 +1,9 @@
+
 #define _GNU_SOURCE
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-
-
-/*示例：Update_Conf
-*/
-#if 0
-int main(void)
-{
-	system("echo \"I like code\" > ./test.conf");
-	Update_Conf("./test.conf", "code", "hello world, man");
-	return 0;
-}
-#endif
-
+#include "util_string.h"
 
 /*示例：Str_GetItem
 */
@@ -31,6 +20,37 @@ int main(void)
 }
 #endif
 
+
+/*示例：htoi
+*/
+#if 0
+int main(void)
+{
+	char hex_str[5] = "11";
+	int dec_num = htoi(hex_str);
+	printf("dec_num = %d\n", dec_num);
+}
+#endif
+
+/*示例：itoh
+*/
+#if 0
+int main(void){
+	int dec_num = 20;
+	char hex_str[5] = "";
+	itoh(dec_num, hex_str);
+	printf("hex_str = %s\n", hex_str);
+}
+#endif
+
+/*示例：calc_gcd
+*/
+#if 0
+int main(void){
+	int gcd = calc_gcd(40, 8);
+	printf("gcd = %d\n", gcd);
+}
+#endif
 
 /*示例：Str_GetItemToLong
 */

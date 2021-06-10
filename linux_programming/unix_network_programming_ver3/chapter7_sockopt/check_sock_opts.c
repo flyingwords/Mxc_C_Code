@@ -1,5 +1,5 @@
 /*
-程序功能描述：
+程序功能描述：创建socket，并检查socket的各种高级配置选项的当前值
 */
 
 #include	<stdio.h>		

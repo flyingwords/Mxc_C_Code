@@ -28,8 +28,12 @@ OBJ_DIR   :=  $(sort $(dir $(OBJS)))
 #CFLAGS是Makefile内置环境变量，INC_FLAGS不是Makefile内置环境变量
 #gcc编译的时候其实后面不会加上$(CFLAGS)，默认会自动套用CFLAGS中选项，但是INC_FLAGS因为不是内置环境变量，因此要加上$(INC_FLAGS)
 CFLAGS := -Wall -g -lpthread -lm -ldl
-#Werror选项会将所有编译的warning 视为error
+#-Wall会打开一些很有用的警告选项，建议编译时加此选项，默认也是该选项
+#-Werror选项会将所有编译的warning 视为error
+#-w选项禁止显示所有警告信息
 CFLAGS += -Werror
+#CFLAGS += -w
+#CFLAGS += -Wall
 INC_FLAGS := -I$(SRC_ROOT)
 INC_FLAGS += -I./lib_api/
 #CFLAGS += $(INC_FLAGS) #将INC_FLAGS包含进CFLAGS
@@ -63,6 +67,8 @@ $(EXE):$(OBJS)
 
 #依赖规则 将OBJS中的.o替换为.c，下面几种写法都可以，效果是一样的
 #gcc的编译选项 -c 表示只编译不链接，这里不能链接，否则会报错，上面的规则才是将所有.o链接成可执行程序
+#$@　　表示规则的目标
+#$^　　  表示规则的依赖
 $(OBJS):%.o:%.c							
 #$(OBJS):$(OBJ_ROOT)/%.o:$(SRC_ROOT)/%.c
 		@#echo "$^"

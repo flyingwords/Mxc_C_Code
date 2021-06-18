@@ -1,0 +1,27 @@
+CC := gcc
+SRC_ROOT := .
+OBJ_ROOT  := .
+SRC_DIR   :=  $(SRC_ROOT)
+SRCS      :=  $(shell find $(SRC_DIR) -name '*.c')
+SRCS      :=  $(sort $(SRCS))
+
+OBJS      :=  $(SRCS:$(SRC_ROOT)/%.c=$(OBJ_ROOT)/%.o) 
+OBJ_DIR   :=  $(sort $(dir $(OBJS)))
+
+CFLAGS := -Wall -g -lpthread -lm -ldl
+CFLAGS += -Werror
+
+INC_FLAGS := -I$(SRC_ROOT)
+INC_FLAGS += -I./lib_api/
+
+EXE := exe_test
+
+#export用来导出环境变量给下级的Makefile，但不会覆盖下级Makefile中定义的同名变量。
+export CC
+export SRCS
+export OBJS
+export OBJ_DIR
+export CFLAGS
+export INC_FLAGS
+export EXE
+

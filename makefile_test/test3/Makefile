@@ -11,9 +11,6 @@ val_1 = world
 
 ####################
 
-
-
-
 all:
 		@#echo "val_1 = $(val_1)"
 		@#echo "val_2 = $(val_2)"

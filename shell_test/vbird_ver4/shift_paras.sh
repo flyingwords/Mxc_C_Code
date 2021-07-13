@@ -1,6 +1,6 @@
 #!/bin/bash
 #测试：测试使用shift指令偏移参数
-#测试命令：./shift_paras.sh  000 111 222 333 444
+#测试命令：./shift_paras.sh    000 111 222 333 444
 
 echo "Total parameter number is ==> $#"
 echo "Your whole parameter is ==> '$@'"

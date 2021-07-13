@@ -1,7 +1,5 @@
 #!/bin/bash
-#测试:
-# User input a filename, program will check the flowing:
-# 1.) exist? 2.) file/directory? 3.) file permissions
+#测试:输入一个文件名，检查文件是否存在，是文件还是目录，以及文件权限
 
 # 1. 让使用者输入档名，并且判断使用者是否真的有输入字符串？
 echo -e "Please input a filename, I will check the filename's type and permission. \n\n"
